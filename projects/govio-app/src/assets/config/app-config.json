@@ -12,7 +12,7 @@
     },
 
     "GOVAPI": {
-      "HOST": "https://govhub.comune.bari.it/govshell-reverse-proxy/govio/api/v1",
+      "HOST": "https://govhub.comune.bari.it/govhub-reverse-proxy/govio/api/v1",
       "LOGOUT_URL": "/logout"
     },
 

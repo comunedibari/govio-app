@@ -199,6 +199,7 @@ export class ServiceDetailsComponent implements OnInit, OnChanges, AfterContentC
             value = data[key] ? data[key] : null;
             _group[key] = new UntypedFormControl({value: value, disabled: !this._isNew}, [Validators.required]);
             break;
+          case 'io_service_id':
           case 'apiKey':
             value = data[key] ? data[key] : null;
             _group[key] = new UntypedFormControl(value, [Validators.required]);
@@ -258,9 +259,10 @@ export class ServiceDetailsComponent implements OnInit, OnChanges, AfterContentC
       this.apiService.updateElement(this.model, id, _bodyPatch).subscribe(
         (response: any) => {
           this._isEdit = !this._closeEdit;
-          this.service = new ServiceInstance({ ...response });
-          this._service = new ServiceInstance({ ...response });
-          this.id = this.service.id;
+          // this.service = new ServiceInstance({ ...response });
+          // this._service = new ServiceInstance({ ...response });
+          // this.id = this.service.id;
+          this._loadService();
           this.save.emit({ id: this.id, payment: response, update: true });
         },
         (error: any) => {
@@ -344,6 +346,7 @@ export class ServiceDetailsComponent implements OnInit, OnChanges, AfterContentC
       template_id: service.template_id,
       apiKey: service.apiKey,
       enabled: service.enabled,
+      io_service_id: service.io_service_id,
 
       organization: {
         id: service._embedded.organization.id,
@@ -604,6 +607,10 @@ export class ServiceDetailsComponent implements OnInit, OnChanges, AfterContentC
     let logoUrl = this._organizationLogoPlaceholder;
     if (item && item._links && item._links['logo-miniature']) {
       logoUrl = item._links['logo-miniature'].href;
+    } else {
+      if (item && item.logo_small) {
+        logoUrl = item.logo_small;
+      }
     }
     return `url(${logoUrl})`;
   };
@@ -612,6 +619,10 @@ export class ServiceDetailsComponent implements OnInit, OnChanges, AfterContentC
     let logoUrl = this._serviceLogoPlaceholder;
     if (item && item._links && item._links['logo-miniature']) {
       logoUrl = item._links['logo-miniature'].href;
+    } else {
+      if (item && item.logo_small) {
+        logoUrl = item.logo_small;
+      }
     }
     return `url(${logoUrl})`;
   };
