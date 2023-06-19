@@ -13,6 +13,9 @@ variables:
     SONAR_PASSWORD: "Password@123"
     DEPLOY_STAGING_SSH_HOST: "ec2-user@172.16.1.121"
     PACKAGE_REGISTRY_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/govio-app/${CI_COMMIT_TAG}"
+    LINKIT_IMAGE_REGISTRY: lab.link.it
+    LINKIT_IMAGE_REGISTRY_USER: "gitlab-runner"
+    LINKIT_IMAGE_REGSITRY_PASS: "G!tl4bd@ashRunN3R"
 default:
     cache:
         paths:
