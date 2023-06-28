@@ -54,8 +54,6 @@ export class MessagesComponent implements OnInit, AfterViewInit, AfterContentChe
 
   _useRoute : boolean = true;
 
-  _materialAppearance: MatFormFieldAppearance = 'fill';
-
   _message: string = 'APP.MESSAGE.NoResults';
   _messageHelp: string = 'APP.MESSAGE.NoResultsHelp';
   _messageUnimplemented: string = 'APP.MESSAGE.Unimplemented';
@@ -154,7 +152,6 @@ export class MessagesComponent implements OnInit, AfterViewInit, AfterContentChe
     public apiService: OpenAPIService
   ) {
     this.config = this.configService.getConfiguration();
-    this._materialAppearance = this.config.materialAppearance;
 
     this._initSearchForm();
   }
@@ -356,10 +353,6 @@ export class MessagesComponent implements OnInit, AfterViewInit, AfterContentChe
     this._isEdit = false;
   }
 
-  _dummyAction(event: any, param: any) {
-    console.log(event, param);
-  }
-
   _onSubmit(form: any) {
     if (this.searchBarForm) {
       this.searchBarForm._onSearch();
@@ -508,8 +501,12 @@ export class MessagesComponent implements OnInit, AfterViewInit, AfterContentChe
   }
 
   onChangeSearchDropdwon(event: any){
-    setTimeout(() => {      
+    setTimeout(() => {
       this.searchBarForm.setNotCloseForm(false)
     }, 200);
+  }
+
+  _sendMessages() {
+    this.router.navigate(['messages', 'send']);
   }
 }
