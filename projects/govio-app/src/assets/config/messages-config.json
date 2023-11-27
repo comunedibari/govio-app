@@ -10,8 +10,8 @@
       "text": [
         { "field": "id", "type": "cardinal", "class": "" },
         { "field": "organization.legal_name", "type": "text" },
-	      { "field": "service.service_name", "type": "text", "emptySpace": true },	      
-	      { "field": "per", "type": "message", "emptySpace": true },
+        { "field": "service.service_name", "type": "text", "emptySpace": true },
+        { "field": "per", "type": "message", "emptySpace": true },
         { "field": "taxcode", "type": "text" }
       ],
       "label": [
@@ -28,17 +28,24 @@
     { "label": "APP.LABEL.Message", "field": "markdown", "type": "markdown", "columns": 12 },
     { "label": "APP.LABEL.User", "field": "user.full_name", "type": "text"},
     { "label": "APP.LABEL.TaxCode", "field": "taxcode", "type": "text" },
-    { "label": "APP.LABEL.CreationDate", "field": "creation_date", "type": "date", "format": "DD-MM-YYYY HH:MM:SS" },
-    { "label": "APP.LABEL.DueDate", "field": "due_date", "type": "date", "format": "DD-MM-YYYY HH:MM:SS" },
-    { "label": "APP.LABEL.ScheduledExpeditionDate", "field": "scheduled_expedition_date", "type": "date", "format": "DD-MM-YYYY HH:MM:SS" },
-    { "label": "APP.LABEL.ExpeditionDate", "field": "expedition_date", "type": "date", "format": "DD-MM-YYYY HH:MM:SS" },
-    { "label": "APP.LABEL.LastUpdateStatus", "field": "last_update_status", "type": "date", "format": "DD-MM-YYYY HH:MM:SS" },
+    { "label": "APP.LABEL.CreationDate", "field": "creation_date", "type": "date", "format": "DD-MM-YYYY HH:mm:ss" },
+    { "label": "APP.LABEL.DueDate", "field": "due_date", "type": "date", "format": "DD-MM-YYYY HH:mm:ss" },
+    { "label": "APP.LABEL.ScheduledExpeditionDate", "field": "scheduled_expedition_date", "type": "date", "format": "DD-MM-YYYY HH:mm:ss" },
+    { "label": "APP.LABEL.ExpeditionDate", "field": "expedition_date", "type": "date", "format": "DD-MM-YYYY HH:mm:ss" },
+    { "label": "APP.LABEL.LastUpdateStatus", "field": "last_update_status", "type": "date", "format": "DD-MM-YYYY HH:mm:ss" },
     { "label": "APP.LABEL.Status", "field": "status", "type": "tag", "options": "status", "badged": true },
     { "label": "APP.LABEL.Id", "field": "id", "type": "number" },
     { "label": "APP.LABEL.Organization", "field": "organization.legal_name", "type": "text" },
     { "label": "APP.LABEL.ServiceName", "field": "service.service_name", "type": "text" },
     { "label": "APP.LABEL.Template", "field": "template.name", "type": "text" },
     { "label": "APP.LABEL.AppioMessageId", "field": "appio_message_id", "type": "text", "hideEmpty": true }
+  ],
+
+  "paymentsDetails": [
+    { "label": "APP.LABEL.NoticeNumber", "field": "payment.notice_number", "type": "text" },
+    { "label": "APP.LABEL.Amount", "field": "payment.amount", "type": "currency" },
+    { "label": "APP.LABEL.PayeeTaxcode", "field": "payment.payee_taxcode", "type": "text" },
+    { "label": "APP.LABEL.InvalidAfterDueDate", "field": "payment.invalid_after_due_date", "type": "tag", "options": "enabled" }
   ],
 
   "options": {
@@ -60,6 +67,14 @@
         "PROCESSING": { "label": "APP.STATUS.PROCESSING", "background": "#9E9E9E", "border": "#9E9E9E", "color": "#ffffff" },
         "DENIED": { "label": "APP.STATUS.DENIED", "background": "#F44336", "border": "#F44336", "color": "#ffffff" },
         "BAD_REQUEST": { "label": "APP.STATUS.BAD_REQUEST", "background": "#F44336", "border": "#F44336", "color": "#ffffff" }
+      }
+    },
+    "enabled": {
+      "label": "APP.LABEL.Enabled",
+      "small": true,
+      "values": {
+        "true": { "label": "APP.STATUS.ENABLED", "background": "#57cc99", "border": "#57cc99", "color": "#1f1f1f" },
+        "false": { "label": "APP.STATUS.DISABLED", "background": "#A4ABB6", "border": "#A4ABB6", "color": "#ffffff" }
       }
     }
   }
