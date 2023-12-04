@@ -12,7 +12,7 @@
     },
 
     "GOVAPI": {
-      "HOST": "{{govapi.host}}",
+      "HOST": "{{govhub_application_api_url}}",
       "LOGOUT_URL": "/logout"
     },
 
